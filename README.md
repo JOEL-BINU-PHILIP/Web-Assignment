@@ -18,8 +18,8 @@ A Flutter web application dashboard with responsive layout and horizontally scro
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/JOEL-BINU-PHILIP/Web-Assignment.git
-    cd flutter-web-dashboard
+     git clone https://github.com/JOEL-BINU-PHILIP/Web-Assignment.git
+     cd Web-Assignment
     ```
 
 2. Install the dependencies:
