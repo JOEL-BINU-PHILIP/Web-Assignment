@@ -9,15 +9,15 @@ class StepNumbers extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 60, // Circle diameter
+            width: 60,
             height: 60,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.blue, width: 3), // Border color and width
+              border: Border.all(color: Colors.blue, width: 3), 
             ),
             child: CircleAvatar(
               backgroundColor: Colors.black,
-              radius: 27, // Reduced radius to fit inside the border
+              radius: 27,
               child: Text(
                 '$stepNumber',
                 style: const TextStyle(
@@ -34,4 +34,3 @@ class StepNumbers extends StatelessWidget {
     );
   }
 }
-

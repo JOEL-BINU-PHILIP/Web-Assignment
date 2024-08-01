@@ -20,7 +20,7 @@ class FeatureCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(15.0), // Rounded corners
+            borderRadius: BorderRadius.circular(15.0), 
             child: Image.asset(image),
           ),
         ),

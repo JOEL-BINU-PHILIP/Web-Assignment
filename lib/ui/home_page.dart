@@ -5,6 +5,8 @@ import '../utils/responsive_layout.dart';
 import 'components/step_number.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,29 +70,30 @@ class HomePage extends StatelessWidget {
   }
 
   Widget buildHowItWorksSteps(BuildContext context, int count) {
-    return const Column(
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-              width: 100,
+              width: screenWidth * 0.1, 
             ),
-            StepNumbers(stepNumber: 1),
+            const StepNumbers(stepNumber: 1),
             SizedBox(
-              width: 200,
-              child: Divider(color: Colors.blue, thickness: 2),
+              width: screenWidth * 0.20,
+              child: const Divider(color: Color(0xFF373737), thickness: 2),
             ),
-            StepNumbers(stepNumber: 2),
+            const StepNumbers(stepNumber: 2),
             SizedBox(
-              width: 200,
-              child: Divider(color: Colors.blue, thickness: 2),
+              width: screenWidth * 0.20,
+              child: const Divider(color: Color(0xFF373737), thickness: 2),
             ),
-            StepNumbers(stepNumber: 3),
-            SizedBox(width: 100),
+            const StepNumbers(stepNumber: 3),
+            SizedBox(width: screenWidth * 0.1), 
           ],
         ),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             HowItWorksStep(
