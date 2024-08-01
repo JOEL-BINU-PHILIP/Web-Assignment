@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class StepNumbers extends StatelessWidget {
   final int stepNumber;
   const StepNumbers({super.key, required this.stepNumber});
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -11,19 +12,21 @@ class StepNumbers extends StatelessWidget {
           Container(
             width: 60,
             height: 60,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.blue, width: 3), 
             ),
-            child: CircleAvatar(
-              backgroundColor: Colors.black,
-              radius: 27,
-              child: Text(
-                '$stepNumber',
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            child: CustomPaint(
+              painter: GradientBorderPainter(),
+              child: CircleAvatar(
+                backgroundColor: Colors.black,
+                radius: 27,
+                child: Text(
+                  '$stepNumber',
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -32,5 +35,30 @@ class StepNumbers extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class GradientBorderPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = Offset.zero & size;
+    const gradient = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [Colors.blue, Colors.green],
+    );
+
+    final paint = Paint()
+      ..shader = gradient.createShader(rect)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3;
+
+    final radius = size.width / 2;
+    canvas.drawCircle(size.center(Offset.zero), radius, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }
